@@ -15,7 +15,7 @@ const ChatSchema = new Schema({
     }
 });
 
-const Chat = model('Chat' ,ChatSchema);
+const ChatModel = model('Chat' ,ChatSchema);
 
 export interface IChat {
     chatName: string,
@@ -24,4 +24,4 @@ export interface IChat {
     _id: Schema.Types.ObjectId
 }
 
-export default Chat;
+export default ChatModel;

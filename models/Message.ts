@@ -23,14 +23,15 @@ const MessageSchema = new Schema({
     }
 });
 
-const Message = model('Message' ,MessageSchema);
+const MessageModel = model('Message' ,MessageSchema);
 
 export interface IMessage {
     text: string,
     chatId: Schema.Types.ObjectId,
+    _id: Schema.Types.ObjectId,
     userId: Schema.Types.ObjectId,
     fixed: boolean,
     created: Date
 }
 
-export default Message;
+export default MessageModel;

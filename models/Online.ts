@@ -11,7 +11,7 @@ const OnlineSchema = new Schema({
     }
 });
 
-const Online = model('Online', OnlineSchema);
+const OnlineModel = model('Online', OnlineSchema);
 
 
 export interface IOnline {
@@ -20,4 +20,4 @@ export interface IOnline {
     userId: Schema.Types.ObjectId
 }
 
-export default Online;
+export default OnlineModel;

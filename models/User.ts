@@ -23,11 +23,9 @@ const UserSchema = new Schema({
         type: String,
         default: null 
     }
-}, {
-    timestamps: true
 });
 
-const User = model('User', UserSchema);
+const UserModel = model('User', UserSchema);
 
 
 export interface IUser {
@@ -36,9 +34,7 @@ export interface IUser {
     password: string,
     fullName: string,
     avatar: string,
-    desc: string,
-    createdAt: Date,
-    updateAt: Date
+    desc: string
 }
 
-export default User;
+export default UserModel;

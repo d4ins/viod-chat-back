@@ -19,7 +19,7 @@ const ChatUserSchema = new Schema({
     },
 });
 
-const ChatUser = model('ChatUser', ChatUserSchema);
+const ChatUserModel = model('ChatUser', ChatUserSchema);
 
 export interface IChatUser {
     _id: Schema.Types.ObjectId,
@@ -29,4 +29,4 @@ export interface IChatUser {
     soundOn: boolean,
 }
 
-export default ChatUser;
+export default ChatUserModel;

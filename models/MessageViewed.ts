@@ -11,6 +11,6 @@ const MessageViewedSchema = new Schema({
     },
 });
 
-const MessageViewed = model('MessageViewed', MessageViewedSchema);
+const MessageViewedModel = model('MessageViewed', MessageViewedSchema);
 
-export default MessageViewed;
+export default MessageViewedModel;

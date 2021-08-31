@@ -11,7 +11,7 @@ const ContactSchema = new Schema({
     },
 });
 
-const Contact = model('Contacts', ContactSchema);
+const ContactModel = model('Contacts', ContactSchema);
 
 export interface IContact {
     _id: Schema.Types.ObjectId,
@@ -19,4 +19,4 @@ export interface IContact {
     contactId: Schema.Types.ObjectId
 }
 
-export default Contact;
+export default ContactModel;

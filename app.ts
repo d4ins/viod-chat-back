@@ -1,42 +1,29 @@
 import express from 'express';
-import mongoose from 'mongoose';
-import {Server} from 'socket.io';
 import http from 'http';
-import Controller from './controller';
-import Online from './models/Online';
-import LoginController from './controller/LoginController';
-
-mongoose.connect('mongodb://localhost:27017/chat-v2', {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true
-});
+import Socket from './socket/Socket';
+import Login from './controllers/Login';
+import user from './routes/user';
+import chat from './routes/chat';
+import contact from './routes/contact';
+import message from './routes/message';
 
 const app = express();
-
-const PORT = 3001;
-
-const loginController = new LoginController();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post('/login', loginController.login);
+const login = new Login();
+
+app.post('/login', login.login);
+app.use('/user', user);
+app.use('/chat', chat);
+app.use('/contact', contact);
+app.use('/message', message);
 
 const server = http.createServer(app);
-const socket = new Server(server, {
-    pingInterval: 1000,
-    pingTimeout: 5000
-});
 
-const controller = new Controller();
+export const socket = new Socket(server);
 
-controller.start(socket);
+export default server;
 
-Online.deleteMany({})
-.then(() => {  
-    server.listen(PORT, '192.168.1.6', () => {
-        console.log(`Example app listening at http://192.168.1.6:${PORT}`);
-    });
-});
 
